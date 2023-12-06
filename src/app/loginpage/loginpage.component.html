@@ -1,0 +1,29 @@
+<main>
+    <div class="logo">
+        <img src="assets/ECN.png" alt="This is the logo">
+    </div>
+    <h1>Welcome!</h1>
+    <div class="card">
+        <form action="">
+            <input (keyup)="OnKeyUsername($event)" type="email" name="username" id="" placeholder="username">
+            <input (keyup)="OnKeyPassword($event)" type="password" name="password" id="" placeholder="password">
+            <div class="options">
+                <div class="option1">
+                    <input type="checkbox" name="rememberme" id="">
+                    <label for="rememberme">Remember Me</label>
+                </div>
+                <div class="option2">
+                    <a href="">Forget Password?</a>
+                </div>
+                
+            </div>
+
+            <button type="submit">Connection</button>
+        </form>
+        <hr>
+        <select name="Langue" id="">
+            <option value="english">English</option>
+            <option value="french">French</option>
+        </select>
+    </div>
+</main>
