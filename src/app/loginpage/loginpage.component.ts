@@ -6,13 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './loginpage.component.css'
 })
 export class LoginpageComponent {
-  username: string;
-  password: string;
-
-  constructor(){
-    this.username = ""
-    this.password = ""
-  }
+  username: any;
+  password: any;
 
   OnKeyUsername( event: any){
     this.username = event.target.value;
@@ -24,8 +19,4 @@ export class LoginpageComponent {
     console.log("Username : " + this.username,"Password : " + this.password);
 
   }
-  
-
-
-
 }

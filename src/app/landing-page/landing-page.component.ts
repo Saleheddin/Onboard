@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OnboardapiService } from '../onboardapi.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
+  testMessage: any;
+  constructor(private api : OnboardapiService){}
+
+  ngOnInit(): void {
+    this.api.getTestMessage().subscribe((data) => {
+      this.testMessage = data.message;
+    });
+  }
 
 }

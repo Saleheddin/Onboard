@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    LoginpageComponent
+    LoginpageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot([
+      {path: '/test', component: LandingPageComponent},
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]

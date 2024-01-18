@@ -1,0 +1,30 @@
+version: '3.1'
+
+services:
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.ngapp
+    ports:
+      - "80:80"
+
+  mongodb:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb: {}
