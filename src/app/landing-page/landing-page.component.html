@@ -1,3 +1,10 @@
 <main class="main">
-    <h1>Message {{testMessage}}</h1>
+    <h1>Users</h1>
+    <div *ngFor="let user of users" class="user">
+        <p>{{user.name}}</p>
+        <p>the major : {{user.major}}</p>
+        <ul>
+            <li *ngFor="let cour of user.cours">{{cour}}</li>
+        </ul>
+    </div>
 </main>

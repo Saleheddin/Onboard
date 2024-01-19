@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Connect to MongoDB
-mongoose.connect('mongodb://db_container:27017/my_db', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/my_db', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Use routes
 app.use('/', routes);

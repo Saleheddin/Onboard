@@ -8,10 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class OnboardapiService {
 
-  private apiUrl = environment
+  private apiEnv = environment
   constructor(private http: HttpClient) {}
 
   getTestMessage(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/test`);
+    return this.http.get<any>(`${this.apiEnv.apiUrl}`);
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get<any>(`${this.apiEnv.apiUrl}/users`);
   }
 }

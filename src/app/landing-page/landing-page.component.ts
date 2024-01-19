@@ -8,12 +8,16 @@ import { OnboardapiService } from '../onboardapi.service';
 })
 export class LandingPageComponent {
   testMessage: any;
+  users:any;
   constructor(private api : OnboardapiService){}
 
   ngOnInit(): void {
     this.api.getTestMessage().subscribe((data) => {
       this.testMessage = data.message;
     });
+    //getting users information
+    this.api.getUsers().subscribe((data) => {
+      this.users = data;
+    });
   }
-
 }

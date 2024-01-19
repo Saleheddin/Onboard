@@ -4,12 +4,12 @@
     </div>
     <h1>Welcome!</h1>
     <div class="card">
-        <form action="">
-            <input (keyup)="OnKeyUsername($event)" type="email" name="username" id="" placeholder="username">
-            <input (keyup)="OnKeyPassword($event)" type="password" name="password" id="" placeholder="password">
+        <form (ngSubmit)="connect()">
+            <input [(ngModel)]="username" type="email" name="username" id="username" placeholder="username">
+            <input [(ngModel)]="password" type="password" name="password" id="password" placeholder="password">
             <div class="options">
                 <div class="option1">
-                    <input type="checkbox" name="rememberme" id="">
+                    <input type="checkbox" name="rememberme" id="rememberme">
                     <label for="rememberme">Remember Me</label>
                 </div>
                 <div class="option2">
