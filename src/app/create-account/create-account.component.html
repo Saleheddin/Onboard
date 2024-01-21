@@ -1,0 +1,12 @@
+<div class="card signup">
+    <form (ngSubmit)="signup()">
+        <input [(ngModel)]="email" type="email" name="email" id="email" placeholder="email">
+        <input [(ngModel)]="username" type="text" name="username" id="username" placeholder="username">
+        <input [(ngModel)]="password" type="password" name="password" id="password" placeholder="password">
+        <input [(ngModel)]="major" type="text" name="major" id="major" placeholder="major">
+        <input [(ngModel)]="year" type="number" name="year" id="year" placeholder="Which year ?">
+        <div class="button-actions">
+            <button  type="submit">sign up</button>
+        </div>
+    </form>
+</div>

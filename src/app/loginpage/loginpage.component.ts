@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -11,21 +12,33 @@ export class LoginpageComponent {
   username: any;
   password: any;
 
-  constructor(private router: Router){}
-
-  OnKeyUsername( event: any){
-    this.username = event.target.value;
+  constructor(private router: Router, private authService: AuthService) { }
+  
+  handleUpdateResponse(response: any) {
+    this.authService.saveToken(response.token);
+    // Redirect to landing page
+    this.router.navigate(['/test'])
   }
 
-  OnKeyPassword( event: any){
-    this.password = event.target.value;
+  handelErrorLogin(error: any) {
+    console.error('Login failed', error);
   }
 
-  connect(){
-    if(this.password==="123456" && this.username==="seelfdali@gmail.com"){
-      this.router.navigate(['/test']);
-    }else{
-      console.log("invalid username or password");
-    }
+  connect() {
+    this.authService.login({ username: 'example', password: 'password' }).subscribe({
+      next: (response) => {
+        // Handle successful response
+        console.log('Login successful', response);
+        this.handleUpdateResponse(response);
+      },
+      error: (error) => {
+        // Handle error
+        this.handelErrorLogin(error);
+      },
+      complete: () => {
+        // This block is optional and runs when the observable is complete
+        console.log('Login process completed');
+      }
+    });
   }
 }
